@@ -1,6 +1,6 @@
 package sample.Riddler;
 
-public class Protocol {
+public class RiddlerProtocol {
 
     private static final int BEGIN = 0;
     private static final int QUESTION = 1;
@@ -27,7 +27,7 @@ public class Protocol {
             "A candle"
     };
     public String processInput(String theInput) {
-        String theOutput = null;
+        String theOutput = "";
         if (state == BEGIN){
             System.out.println("WAITING");
             theOutput = "Welcome to the riddleFactory, do you want to begin?";

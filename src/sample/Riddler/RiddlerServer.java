@@ -1,5 +1,7 @@
 package sample.Riddler;
 
+import sample.Riddler.working.Protocol;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,7 +9,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class RiddlerServer {
+public class RiddlerServer implements Runnable {
     int portNumber = 55555;
 
     public RiddlerServer() throws IOException {
@@ -23,7 +25,7 @@ public class RiddlerServer {
             String inputLine, outPutLine;
 
             //Initiate conversation with client
-            Protocol prot = new Protocol();
+            RiddlerProtocol prot = new RiddlerProtocol();
             outPutLine = prot.processInput(null);
             out.println(outPutLine);
 
@@ -41,6 +43,10 @@ public class RiddlerServer {
         }
     }
 
+    @Override
+    public void run() {
+
+    }
     public static void main(String[] args) throws IOException {
         RiddlerServer s = new RiddlerServer();
     }
